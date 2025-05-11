@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "a5e1b7f2-8d42-4c55-9a62-b3deb7c07d99",
+		"name": "WaslMed API",
+		"description": "API collection for testing WaslMed healthcare management application endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"your_password\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/callback/credentials",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"callback",
+								"credentials"
+							]
+						},
+						"description": "Authenticates a user and returns session data"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"user@example.com\",\n  \"password\": \"your_password\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registers a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/signout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signout"
+							]
+						},
+						"description": "Ends the user session"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/session",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"session"
+							]
+						},
+						"description": "Returns the current session data if authenticated"
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication related endpoints"
+		},
+		{
+			"name": "Medical Records",
+			"item": [
+				{
+					"name": "Get Medical Record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/medical-record",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"medical-record"
+							]
+						},
+						"description": "Retrieves the medical record for the authenticated user"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Medical Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"profileImage\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABA...\",\n  \"personalInfo\": {\n    \"dateOfBirth\": \"1990-01-01\",\n    \"gender\": \"male\",\n    \"bloodType\": \"A+\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"maritalStatus\": \"single\",\n    \"occupation\": \"Engineer\",\n    \"emergencyContact\": {\n      \"name\": \"Jane Doe\",\n      \"relationship\": \"Spouse\",\n      \"phone\": \"+1234567890\"\n    }\n  },\n  \"allergies\": [\n    {\n      \"allergen\": \"Penicillin\",\n      \"severity\": \"moderate\",\n      \"reaction\": \"Rash and itching\",\n      \"diagnosedDate\": \"2018-05-10\"\n    }\n  ],\n  \"medications\": [\n    {\n      \"name\": \"Lisinopril\",\n      \"dosage\": \"10mg\",\n      \"frequency\": \"Once daily\",\n      \"startDate\": \"2020-03-15\",\n      \"endDate\": null,\n      \"prescribedBy\": \"Dr. Smith\",\n      \"purpose\": \"Blood pressure control\"\n    }\n  ],\n  \"conditions\": [\n    {\n      \"name\": \"Hypertension\",\n      \"diagnosedDate\": \"2020-02-10\",\n      \"status\": \"managed\",\n      \"treatedBy\": \"Dr. Smith\",\n      \"notes\": \"Well controlled with medication\"\n    }\n  ],\n  \"lifestyle\": {\n    \"smokingStatus\": \"never\",\n    \"alcoholConsumption\": \"occasional\",\n    \"exerciseFrequency\": \"moderate\",\n    \"diet\": \"balanced\",\n    \"sleepPattern\": \"7-to-8\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/medical-record",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"medical-record"
+							]
+						},
+						"description": "Creates or updates the medical record for the authenticated user"
+					},
+					"response": []
+				}
+			],
+			"description": "Medical record related endpoints"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+} 
